@@ -1,0 +1,23 @@
+{
+  "name": "AlgoCasts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Samatar26/AlgoCasts.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Samatar26/AlgoCasts/issues"
+  },
+  "homepage": "https://github.com/Samatar26/AlgoCasts#readme",
+  "devDependencies": {
+    "jest": "^22.1.4"
+  }
+}
