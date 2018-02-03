@@ -39,3 +39,10 @@ function reverse(str) {
   return str.split('').reduce((rev, char) => char + rev, '')
 }
 ```
+
+### Note
+You can put a `debugger` statement in your code and this allows you to debug your code using node by:
+
+* calling `node inspect filename.js` in your terminal.
+* In order to continue execution of your your file you'll have to type `continue` or `c` in your terminal.
+* Then you're able to view function results and variable values by launching a `repl` session and typing `repl` in your terminal
