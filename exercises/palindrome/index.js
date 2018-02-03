@@ -9,4 +9,14 @@
 
 function palindrome(str) {}
 
-module.exports = palindrome;
+module.exports = palindrome
+
+// Solution #1
+// function palindrome(str) {
+//   const reversed = str
+//     .split('')
+//     .reverse()
+//     .join('')
+//
+//   return reversed === str
+// }
