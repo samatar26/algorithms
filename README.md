@@ -48,3 +48,19 @@ If you increase the input set by 1, it would increase the time to execute the al
 ### Exponential runtime ( 2 ^ n )
 
 If you add a single element to a collection, the processing power required doubles. This is one of the worst scenarios. Should never be proposed as a solution as there's almost always a better/more efficient solution.
+
+## Big 'O' Notation
+
+![Big O](https://user-images.githubusercontent.com/22747985/36344510-610a60aa-1413-11e8-87cf-26af905c2fba.png)
+
+This is another way of referencing runtime complexity. It's a way of writing out runtime complexity that's commonly seen in the academic world (although the term means something slightly different, Look up!).
+
+## Identifying Runtime Complexity
+
+![Identifying Big O](https://user-images.githubusercontent.com/22747985/36344562-90053096-1414-11e8-8ad1-7fc556903ad5.png)
+
+## Space Complexity
+
+We've been talking about runtime complexity which is a reference to the performance of an algorithm in terms of processing power. Space complexity is a reference to how much memory/RAM/space an algorithm needs to complete a given task. You can generally apply a lot of the same rules of runtime complexity to space-time complexity, i.e. for the string reversal algorithm and the steps algorithm it's the same. As i.e. for n = 2 in the steps algorithm we'll need 4 items in memory and for n =3 we'll need 9 items in memory so i.e. quadratic runtime for space complexity as well.
+
+The space and runtime complexity won't always be identical and can sometimes be very different.
