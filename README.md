@@ -84,3 +84,11 @@ A queue follows a `First In First Out (F-I-F-O)` principle.
 In JavaScript when we want to implement a queue, what we usually end up doing is taking an array and restricting the methods that can be used to interact with the array. I.e. adding an item to an array is done by calling `array.unshift()` and removing an item from the end of the array is done by calling `array.pop()`.
 
 So a very common way of implementing a queue in JavaScript is making a `Queue class` and inside of that class we'd initialize an empty array. But we'll usually only expose the unshift and pop methods outside of the class. One possible reason to use a queue and hide the methods an array normally has is to make sure that if another engineer comes to look at your project won't think that it's just an array and i.e. reorder the elements or remove some.
+
+### Stack
+
+![stack](https://user-images.githubusercontent.com/22747985/36354697-2618ac5a-14d0-11e8-9347-822b5ea92262.png)
+
+A stack is extraordinarily similar to a queue. With a stack you're still dealing with an ordered list of records and you can imagine those records living in some sort of container, i.e. the stack. When you add a record to an existing stack we refer to this as pushing a new record onto the stack. Removing a record from the stack is referred to as popping.
+
+The big difference between a stack and a queue is the order in which items are added and removed. With a queue it's `FIFO` whereas with a stack it's `(First In Last Out) FILO`. So you can think of it as pushing the records on top of each other. Whereas with a queue it's adding a record to the end of the queue for removal.
