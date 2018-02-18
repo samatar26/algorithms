@@ -21,7 +21,7 @@ The runtime complexity is linear or `O(n)`.
 
 Prefer explanation 1.
 
-### Solution 2 - Recursive
+### Solution 2 - Slow Recursive
 
 ```js
 function fib(n) {
@@ -54,3 +54,32 @@ So if the function's called again with the _**same**_ arguments, rather than run
 ![memoization-fib](https://user-images.githubusercontent.com/22747985/36353069-96c9d5f8-14b9-11e8-9c67-7741593e7984.png)
 
 When we call fib with 6, we're going to immediately make a call to fib(5) and that's going to make a call to fib(4). We're then going to write some code which recognizes that our function is being called with an argument it's never been called with before. We'll then run the function and take the function result and store it so that whenever our function is called with the same argument we don't have to execute the function again.
+
+### Solution 3 - Memoized Fib
+
+```js
+function memoize(fn) {
+  const cache = {}
+
+  return function(...args) {
+    if (cache[args]) {
+      return cache[args]
+    }
+
+    const result = fn.apply(this, args)
+    cache[args] = result
+
+    return result
+  }
+}
+
+function fib(n) {
+  if (n < 2) return n
+
+  return fib(n - 1) + fib(n - 2)
+}
+
+fib = memoize(slowFib)
+```
+
+One important thing to note is that inside our fib function when we attempt to call the function recursively it's not a reference directly to the function, but a reference to the memoized version as we've reassigned it!
