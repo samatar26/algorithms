@@ -38,3 +38,19 @@ The only time in which we appear to return a number from fibonacci is when n is 
 ![recursive diagram](https://user-images.githubusercontent.com/22747985/36345402-68eedfe0-1421-11e8-9d91-b1d7350416ec.png)
 
 The whole time the interpreter is processing this recursive function call it has to remember how it got there. Because once it eventually gets down to the base cases and gets a numeric response it then has to build up to it's previous response.
+
+## Memoization
+
+![fib-6](https://user-images.githubusercontent.com/22747985/36352907-5943b2aa-14b7-11e8-90cc-1ab3692a0a8b.png)
+
+With fib(5) we have 15 function calls and with fib(6) we have an additional 10 calls. This is referred to as exponential runtime. For every additional element to our input we have a dramatic increase in the number of function calls/operations required to calculate our value that we're trying to determine.
+
+There is a way to improve the runtime of our algorithm. When we look at all the functional calls, you can immediately see that our function is being called multiple times with the same arguments.
+
+This is where _**memoization**_ comes into play. When we memoize a function we're going to record the arguments of each function call and then we're going to run the function and store the result. So we'll have a little table in memory with the argument along with it's function results.
+
+So if the function's called again with the _**same**_ arguments, rather than running the function again, we'll return the pre-computed result from our table.
+
+![memoization-fib](https://user-images.githubusercontent.com/22747985/36353069-96c9d5f8-14b9-11e8-9c67-7741593e7984.png)
+
+When we call fib with 6, we're going to immediately make a call to fib(5) and that's going to make a call to fib(4). We're then going to write some code which recognizes that our function is being called with an argument it's never been called with before. We'll then run the function and take the function result and store it so that whenever our function is called with the same argument we don't have to execute the function again.
