@@ -9,15 +9,21 @@
 //   fib(4) === 3
 
 function fib(n) {
-  let series = [0, 1]
+  if (n < 2) return n
 
-  for (let i = 2; i <= n; i++) {
-    const a = series[i - 1]
-    const b = series[i - 2]
-    series.push(a + b)
-  }
-
-  return series[n]
+  return fib(n - 1) + fib(n - 2)
 }
 
 module.exports = fib
+
+// function fib(n) {
+//   let series = [0, 1]
+
+//   for (let i = 2; i <= n; i++) {
+//     const a = series[i - 1]
+//     const b = series[i - 2]
+//     series.push(a + b)
+//   }
+
+//   return series[n]
+// }
