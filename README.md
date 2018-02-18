@@ -64,3 +64,23 @@ This is another way of referencing runtime complexity. It's a way of writing out
 We've been talking about runtime complexity which is a reference to the performance of an algorithm in terms of processing power. Space complexity is a reference to how much memory/RAM/space an algorithm needs to complete a given task. You can generally apply a lot of the same rules of runtime complexity to space-time complexity, i.e. for the string reversal algorithm and the steps algorithm it's the same. As i.e. for n = 2 in the steps algorithm we'll need 4 items in memory and for n =3 we'll need 9 items in memory so i.e. quadratic runtime for space complexity as well.
 
 The space and runtime complexity won't always be identical and can sometimes be very different.
+
+## Data structures
+
+A data structure is a way of organizing information or data with some optimal _**runtime complexity**_ for adding or removing records. JavaScript natively implements several data structures.
+
+#### Queue
+
+![queue](https://user-images.githubusercontent.com/22747985/36353478-f48c9932-14be-11e8-84c0-73b424f7c3c8.png)
+
+A queue can be thought of a container where records or pieces of data enter on one end of the container and exit on the other.
+
+`Enqueuing` is the process of adding a record and taking something out of the other end/removing a record is known as `dequeuing`.
+
+![FIFO](https://user-images.githubusercontent.com/22747985/36353538-8d718842-14bf-11e8-9d21-b5ca67ebb16e.png)
+
+A queue follows a `First In First Out (F-I-F-O)` principle.
+
+In JavaScript when we want to implement a queue, what we usually end up doing is taking an array and restricting the methods that can be used to interact with the array. I.e. adding an item to an array is done by calling `array.unshift()` and removing an item from the end of the array is done by calling `array.pop()`.
+
+So a very common way of implementing a queue in JavaScript is making a `Queue class` and inside of that class we'd initialize an empty array. But we'll usually only expose the unshift and pop methods outside of the class. One possible reason to use a queue and hide the methods an array normally has is to make sure that if another engineer comes to look at your project won't think that it's just an array and i.e. reorder the elements or remove some.
