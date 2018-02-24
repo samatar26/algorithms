@@ -118,3 +118,14 @@ clear() {
 ```
 
 All we have to do to clear the list of any nodes is assign the head property to null as this is a reference to the first node of the linked list.
+
+### removeFirst method
+
+```js
+  removeFirst() {
+    if (!this.head) return
+    this.head = this.head.next
+  }
+```
+
+Removing the first node of the list involves assigning the head (which holds a reference to the first node of the list) to the head's next property which points to the next/second node in the list. In the case that there are no nodes in the list we simply return and do nothing.
