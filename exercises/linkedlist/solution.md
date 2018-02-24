@@ -129,3 +129,27 @@ All we have to do to clear the list of any nodes is assign the head property to 
 ```
 
 Removing the first node of the list involves assigning the head (which holds a reference to the first node of the list) to the head's next property which points to the next/second node in the list. In the case that there are no nodes in the list we simply return and do nothing.
+
+### removeLast method
+
+```js
+getLast() {
+  //if the list is empty, we immediately return
+  if (!this.head) return
+  //if the list only has one node, we don't want to do any unnecessary assignments/iterations
+  if (!this.head.next) {
+    this.head = null
+    return
+  }
+
+  let previous = this.head
+  let node = this.head.next
+
+  while(node.next) {
+    previous = previous.next
+    node = previous.next
+  }
+
+  previous.node = null
+}
+```
