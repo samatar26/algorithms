@@ -92,3 +92,19 @@ class LinkedList {
 ```
 
 The getFirst method should return the first node of the linked list. Since we know that a linked list class has a property called `head` which is equal to the first node of our linked list, we can simply return that.
+
+### getLast method
+
+```js
+  getLast() {
+    if (!this.head) return null //premature optimization??
+
+    let node = this.head
+
+    while (node && node.next) {
+      node = node.next
+    }
+
+    return node
+  }
+```
