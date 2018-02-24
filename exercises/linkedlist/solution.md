@@ -34,3 +34,37 @@ class LinkedList {
 ```
 
 The insertFirst method on our LinkedList class allows us to insert nodes in our list. We call the method with some data, create a new node based on the data and assign our head property to this node. The first node we create won't contain a reference to another node and therefore it's next property will equal null, which is what initialized our head property of our linked list with. From then on, every node we insert into our list will point it's next property to the next node, i.e. this.head.
+
+#### Size method
+
+```js
+class Node {
+  constructor(data, next = null) {
+    this.data = data
+    this.next = next
+  }
+}
+
+class LinkedList {
+  constructor() {
+    this.head = null
+  }
+
+  insertFirst(data) {
+    this.head = new Node(data, this.head)
+  }
+
+  size() {
+    let size = 0
+    let node = this.head
+    while (node) {
+      size++
+      node = node.next
+    }
+
+    return size
+  }
+}
+```
+
+We create two local variables size and node which is assigned the value of the property head of our LinkedList class. While a node exists we increment our size variable and reassign our node variable to the next property of our node. When we eventually reach the end of our list, the tail, it should assign our node variable to null and we then return the size of the linked list.
