@@ -92,3 +92,27 @@ So a very common way of implementing a queue in JavaScript is making a `Queue cl
 A stack is extraordinarily similar to a queue. With a stack you're still dealing with an ordered list of records and you can imagine those records living in some sort of container, i.e. the stack. When you add a record to an existing stack we refer to this as pushing a new record onto the stack. Removing a record from the stack is referred to as popping.
 
 The big difference between a stack and a queue is the order in which items are added and removed. With a queue it's `FIFO` whereas with a stack it's `(First In Last Out) FILO`. So you can think of it as pushing the records on top of each other. Whereas with a queue it's adding a record to the end of the queue for removal.
+
+## Linked List
+
+![linked-list](https://user-images.githubusercontent.com/22747985/36630863-419b4f98-1965-11e8-87c3-fcd3c7dc4b09.png)
+
+A linked list is an ordered collection of data. The collection contains a number of different _**nodes**_. Each node contains some amount of data, along with a reference to the next node. So when we put a handful of these nodes together we refer to it as a linked list as it is quite literally a list of linked nodes. It's also frequently referred to as a chain or a chain of nodes that are strung together.
+
+The list of nodes that form this chain has an order that's always maintained, so it won't suddenly or randomly change unless we specifically want to change it of course. In ever linked list there are two special nodes that you'll always see: The _**head**_ node, which is always the very first node of the linked list and _**tail**_ node, which is always the very last node of the linked list. The tail node can always be identified by the fact that it doesn't have a reference to any other node. Every single node has two discreet parts to it. Some data which can be any type of valid JavaScript value, i.e. a string, a number, an object, etc. The other part of the node is a reference to the next node.
+
+Here is a quick example of a linked list:
+
+```js
+const nodeOne = {
+  data: 123,
+}
+
+const nodeTwo = {
+  data: 456,
+}
+
+nodeOne.next = nodeTwo
+```
+
+By convention we usually make sure that a node has two properties, a data property and a next property. The above is a very straightforward and simple implementation of a linked list. As long as you have some separate pieces of data and form some type of connection between them you can refer to that as a linked list.
