@@ -153,3 +153,19 @@ getLast() {
   previous.node = null
 }
 ```
+
+### insertLast method
+
+```js
+insertLast(data) {
+  const last = this.getLast() //First we retrieve the last node in our list
+
+  if (last) {
+    //If there is a node we'll set the next property on that node equal to our new node
+    last.next = new Node(data)
+  } else {
+    //If the list is empty we'll set the head equal to our new node as it's the first node in our linked list
+    this.head = new Node(data)
+  }
+}
+```
