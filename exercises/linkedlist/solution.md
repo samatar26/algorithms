@@ -108,3 +108,13 @@ The getFirst method should return the first node of the linked list. Since we kn
     return node
   }
 ```
+
+### clear method
+
+```js
+clear() {
+  this.head = null
+}
+```
+
+All we have to do to clear the list of any nodes is assign the head property to null as this is a reference to the first node of the linked list.
