@@ -18,3 +18,19 @@ Note - The property next is a reference to the `next node along the chain`, not 
 ![linked-list](https://user-images.githubusercontent.com/22747985/36631066-2d87d55e-1969-11e8-8944-36847f87c2a5.png)
 
 Well start off with the constructor function of the linked list which is used to initialize our linked list. We create the linked list with _**no head node**_ associated with it, so we can call `new LinkedList()` there should be no nodes associated with it. It should have one property called _**head**_, which is going to be a reference to the first node of the linked list. By default `head` should be `null`. The linked list has very little hard data associated with it, all it really knows is the first node of the list. We'll have to add methods to the class which will i.e. allow us to access the first node and crawl through the linked list and work through it in some meaningful fashion.
+
+#### InsertFirst method
+
+```js
+class LinkedList {
+  constructor() {
+    this.head = null
+  }
+
+  insertFirst(data) {
+    this.head = new Node(data, this.head)
+  }
+}
+```
+
+The insertFirst method on our LinkedList class allows us to insert nodes in our list. We call the method with some data, create a new node based on the data and assign our head property to this node. The first node we create won't contain a reference to another node and therefore it's next property will equal null, which is what initialized our head property of our linked list with. From then on, every node we insert into our list will point it's next property to the next node, i.e. this.head.

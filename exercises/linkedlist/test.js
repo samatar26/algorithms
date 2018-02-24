@@ -25,13 +25,21 @@ describe('A LinkedList', () => {
   })
 })
 
-describe.skip('Insert First', () => {
+describe('Insert First', () => {
   test('appends a node to the start of the list', () => {
     const l = new List()
     l.insertFirst(1)
     expect(l.head.data).toEqual(1)
+    expect(l.head.next).toEqual(null)
+  })
+
+  test('appends a new node with the reference to the next node if head exists', () => {
+    const l = new List()
+    l.insertFirst(1)
+    const nextNode = l.head
     l.insertFirst(2)
     expect(l.head.data).toEqual(2)
+    expect(l.head.next).toEqual(nextNode)
   })
 })
 
