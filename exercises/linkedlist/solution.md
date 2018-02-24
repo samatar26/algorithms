@@ -38,13 +38,6 @@ The insertFirst method on our LinkedList class allows us to insert nodes in our 
 #### Size method
 
 ```js
-class Node {
-  constructor(data, next = null) {
-    this.data = data
-    this.next = next
-  }
-}
-
 class LinkedList {
   constructor() {
     this.head = null
@@ -68,3 +61,34 @@ class LinkedList {
 ```
 
 We create two local variables size and node which is assigned the value of the property head of our LinkedList class. While a node exists we increment our size variable and reassign our node variable to the next property of our node. When we eventually reach the end of our list, the tail, it should assign our node variable to null and we then return the size of the linked list.
+
+#### getFirst method
+
+```js
+class LinkedList {
+  constructor() {
+    this.head = null
+  }
+
+  insertFirst(data) {
+    this.head = new Node(data, this.head)
+  }
+
+  size() {
+    let size = 0
+    let node = this.head
+    while (node) {
+      size++
+      node = node.next
+    }
+
+    return size
+  }
+
+  getFirst() {
+    return this.head
+  }
+}
+```
+
+The getFirst method should return the first node of the linked list. Since we know that a linked list class has a property called `head` which is equal to the first node of our linked list, we can simply return that.
