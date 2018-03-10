@@ -234,3 +234,19 @@ insertLast(data) {
     previous.next = newNode
   }
 ```
+
+## Code Reusability
+
+If you look at the getFirst, getLast and getAt methods for example. You can see that the getFirst and getLast methods are a bit redundant, because our getAt method has the functionality to return a node at any given index, so we could rewrite these functions like so:
+
+```js
+getLast(){
+  return this.getAt(this.size() - 1)
+}
+
+getFirst() {
+  return this.getAt(0)
+}
+```
+
+The key takeaway of this is that you should try and look ahead and if you for example start by implementing a getFirst or geLast method, maybe think about the future as you may need a generic getAt method which will cover both these methods too. Code reusability ftw!
