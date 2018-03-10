@@ -179,7 +179,8 @@ insertLast(data) {
     //We don't want to call this.size(), because if index is not greater than this.size()
     //Then we're basically iterating through our linked list twice.
 
-    if (!this.head) return null
+    // if (!this.head) return null
+    // if node is null we're returning it at the bottom anyway, so the if statement is redundant
 
     let counter = 0
     let node = this.head
@@ -191,5 +192,30 @@ insertLast(data) {
     }
 
     return null
+  }
+```
+
+### removeAt method
+
+```js
+  removeAt(index) {
+    if (!this.head) return
+
+    if (index === 0) {
+      this.head = this.head.next
+      return
+    }
+
+//We're reusing our getAt method to retrieve the node before the given index.
+// If that node doesn't exist or it's next property is null, we return out of the function.
+
+// If not we set the previous node equal to the .next.next property.
+
+    const previous = this.getAt(index - 1)
+    if (!previous || !previous.next) return
+
+    const nextNode = previous.next
+
+    previous.next = nextNode.next
   }
 ```

@@ -84,8 +84,6 @@ class LinkedList {
   }
 
   getAt(index) {
-    if (!this.head) return null
-
     let counter = 0
     let node = this.head
 
@@ -96,6 +94,21 @@ class LinkedList {
     }
 
     return null
+  }
+
+  removeAt(index) {
+    if (!this.head) return
+    if (index === 0) {
+      this.head = this.head.next
+      return
+    }
+
+    const previous = this.getAt(index - 1)
+    if (!previous || !previous.next) return
+
+    const nextNode = previous.next
+
+    previous.next = nextNode.next
   }
 }
 

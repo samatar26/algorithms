@@ -215,7 +215,7 @@ describe('GetAt', () => {
   })
 })
 
-describe.skip('RemoveAt', () => {
+describe('RemoveAt', () => {
   test('removeAt doesnt crash on an empty list', () => {
     const l = new List()
     expect(() => {
@@ -228,7 +228,6 @@ describe.skip('RemoveAt', () => {
   test('removeAt doesnt crash on an index out of bounds', () => {
     const l = new List()
     expect(() => {
-      const l = new List()
       l.insertFirst('a')
       l.removeAt(1)
     }).not.toThrow()
