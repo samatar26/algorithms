@@ -169,3 +169,27 @@ insertLast(data) {
   }
 }
 ```
+
+### getAt method
+
+```js
+  getAt(index) {
+
+    // if (index > this.size() || index < 0) return null
+    //We don't want to call this.size(), because if index is not greater than this.size()
+    //Then we're basically iterating through our linked list twice.
+
+    if (!this.head) return null
+
+    let counter = 0
+    let node = this.head
+
+    while (node) {
+      if (counter === index) return node
+      counter++
+      node = node.next
+    }
+
+    return null
+  }
+```
