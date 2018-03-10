@@ -322,7 +322,7 @@ describe('InsertAt', () => {
   })
 })
 
-describe.skip('ForEach', () => {
+describe('ForEach', () => {
   test('applies a transform to each node', () => {
     const l = new List()
 
