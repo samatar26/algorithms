@@ -219,3 +219,18 @@ insertLast(data) {
     previous.next = nextNode.next
   }
 ```
+
+### insertAt Method
+
+```js
+  insertAt(data, index) {
+    // If the list is empty or the index is 0, we set the head equal to a new node with the data and it's next property pointing to the current head. So if list is empty it'll be null, if not it'll point to the first node in the list.
+    if (!this.head || index === 0) this.head = new Node(data, this.head)
+
+// We get the previous node before the provided index. If the index is out of bounds, we get the last node in the list. We then create the new node with it's next property equal to the previous one's.next's property! So we basically come in between two nodes.
+    const previous = this.getAt(index - 1) || this.getLast(index - 1)
+
+    const newNode = new Node(data, previous.next)
+    previous.next = newNode
+  }
+```
