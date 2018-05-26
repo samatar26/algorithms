@@ -317,3 +317,92 @@ console.log(generator.next().value) // 0
 console.log(generator.next().value) // 1
 console.log(generator.next().value) // 2
 ```
+
+You can also nest generators:
+
+```js
+function* numbers() {
+  yield 1
+  yield 2
+  yield* moreNumbers()
+  yield 6
+  yield 7
+}
+
+function* moreNumbers() {
+  yield 3
+  yield 4
+  yield 5
+}
+
+const generator = numbers()
+
+for (let value of generator) {
+  console.log(value) // 1, 2, 4, 5, 6, 7
+}
+```
+
+Tree traversal example:
+
+```js
+class Tree {
+  constructor(value = null, children = []) {
+    this.value = value
+    this.children = children
+  }
+
+  *printValues() {
+    yield this.value
+    for (let child of this.children) {
+      yield* child.printValues()
+    }
+  }
+}
+
+const tree = new Tree(1, [
+  new Tree(2, [new Tree(4)]), 
+  new Tree(3)
+])
+
+const gen = tree.printValues()
+
+console.log(
+  gen.next(), // 1
+  gen.next(), // 2
+  gen.next(), // 4
+  gen.next(), // 3
+  gen.next() // done
+)
+```
+
+If we call `printValues` on a single node of the tree, we will first yield that node's value. The next time we call next on the generator object, we will enter the for loop and we can delegate to other GeneratorFunctions. So for each child of the head node its printValues GeneratorFunction is called where first it's value is yielded and then subsequently its children's printValues will be called. So we get 1, 2, 4 and 3 from the example above.
+
+
+### Making an object iterable :mind-blown:
+
+An object is iterable if it defines its iteration behavior, such as what values are looped over in a `for...of` construct. Some built-in types such as `Array` or `Map` have a default iteration behaviour, while others, like objects do not. 
+
+In order to be `iterable`, an object must implement the _**@@iterator**_ method. All this means is that the object must have a property with a `Symbol.iterator` key. This function should return a new iterator for each call, however this is not a requirement. 
+
+Example: 
+
+```js
+const myIterable = {};
+myIterable[Symbol.iterator] = function* () {
+    yield 1;
+    yield 2;
+    yield 3;
+};
+
+
+//Iterable linked list example
+  *[Symbol.iterator]() {
+    let node = this.head
+    while (node) {
+      yield node
+      node = node.next
+    }
+  }
+```
+
+Computed property names allows us to put an expression in brackets `[]` which will be computed and used as the property name. Both the Object initializer syntax and the class syntax support this feature.
