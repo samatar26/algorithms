@@ -116,3 +116,25 @@ nodeOne.next = nodeTwo
 ```
 
 By convention we usually make sure that a node has two properties, a data property and a next property. The above is a very straightforward and simple implementation of a linked list. As long as you have some separate pieces of data and form some type of connection between them you can refer to that as a linked list.
+
+## Trees
+
+![tree](https://user-images.githubusercontent.com/22747985/40579676-fb8ee142-6124-11e8-9418-39fa88920176.png")
+
+A tree is another data structure. There are several different types of trees. The above diagram shows the basic structure of a tree. Each box can be referred to as a node which holds some data and it will also hold a reference to all of its children. I.e. 0, 40 and -15 can refer to 20 as its parent. There's a child-parent relationship between different nodes on a tree. The data can be absolutely anything.
+
+12 and -2 can be referred to as siblings, although nodes can be on the same level they aren't necessarily siblings if they don't have the same parent.
+
+One of the most common operations you will have to do on a tree is _**tree traversal**_, which is essentially iterating through all the different elements within a tree. We will be learning two distinct ways of how to iterate through a tree. I.e. the order in which elements we iterate through the tree as there isn't a real distinct order at which you'd visit the elements.
+
+#### Breadth-First Traversal
+
+![breadth-first-traversal](https://user-images.githubusercontent.com/22747985/40579747-c330c5c0-6126-11e8-8689-4289a660a9c3.png)
+
+This is essentially starting at the top level, going from left to right and then to the next level from left to right. It doesn't matter that [12, -2, 1] and [-2] do not share the same parent.
+
+### Depth-First Traversal
+
+![depth-first-traversal](https://user-images.githubusercontent.com/22747985/40579753-1de1c370-6127-11e8-903b-d646a2742911.png)
+
+We start at the very top of the tree and go down the very left-hand side as far as we can go, `"We span the depth of the tree"` and soon as we hit the bottom we go back up to closest parent and go back down again until there are no elements left to traverse.
