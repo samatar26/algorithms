@@ -92,7 +92,6 @@ class LinkedList {
       counter++
       node = node.next
     }
-
     return null
   }
 
@@ -121,10 +120,11 @@ class LinkedList {
   }
 
   forEach(fn) {
+    let index = 0
     let node = this.head
 
     while (node) {
-      fn(node)
+      fn(node, index)
       node = node.next
     }
   }

@@ -250,3 +250,70 @@ getFirst() {
 ```
 
 The key takeaway of this is that you should try and look ahead and if you for example start by implementing a getFirst or geLast method, maybe think about the future as you may need a generic getAt method which will cover both these methods too. Code reusability ftw!
+
+### forEach method
+
+```js
+  forEach(fn) {
+    let node = this.head
+    let index = 0
+
+    while (node) {
+      fn(node, index)
+      index++
+      node = node.next
+    }
+
+    //recursive answer
+    function modifyNode(node) {
+      if (!node) return
+
+      fn(node)
+      modifyNode(node.next)
+    }
+
+    modifyNode(this.head)
+  }
+```
+
+### Iterators and Generators
+
+An object is an **_Iterator_** when it knows how to access items from a collection one a time, while keeping track of its current position within that sequence. In JavaScript an iterator is an object that provides `next()` method which returns the next item in the sequence. This method returns an object with two properties, namely: `done` and `value`.
+
+An iterator is considered to be finished when `next()` returns an object with the `done` property set to `true`.
+
+Example of an iterator:
+
+```js
+function makeIterator(array) {
+  let nextIndex = 0
+
+  return {
+    next: function() {
+      return nextIndex < array.length
+        ? { value: array[nextIndex++], done: false }
+        : { done: true }
+    },
+  }
+}
+```
+
+While custom iterators are useful, it can be quite complicated to create them as they need to explicitly maintain their internal state. In come _**Generators**_.
+Generators provide a powerful alternative as they allow you to define an iterative algorithm by writing a single function which can maintain its own state.
+
+A GeneratorFunction is a special type of function that works as a factory (_an object for creating other objects_) for iterators. When it's executed it returns a new Generator object. A function becomes a GeneratorFunction if it uses the `function*` syntax.
+
+Example:
+
+```js
+function* idMaker() {
+  var index = 0
+  while (true) yield index++
+}
+
+const generator = idMaker()
+
+console.log(generator.next().value) // 0
+console.log(generator.next().value) // 1
+console.log(generator.next().value) // 2
+```
