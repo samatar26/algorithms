@@ -50,3 +50,19 @@ class Tree {
 ```
 
 We first initialize an array with the root node and then setup a while loop as long as our array contains node(s). We take out the first element/node in the array, push all of it's children and call our callback with the node we took out. It's truly from top to bottom and left to right!
+
+### DepthFirst Traversal solution:
+```js
+  traverseDF(fn) {
+    const arr = [this.root]
+
+    while (arr.length) {
+      const node = arr.shift()
+      arr.unshift(...node.children)
+
+      fn(node)
+    }
+  }
+```
+
+Similar to the BreadthFirst solution, the only difference being that the node's children are added at the start of the array instead of the end.
