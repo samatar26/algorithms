@@ -138,3 +138,15 @@ This is essentially starting at the top level, going from left to right and then
 ![depth-first-traversal](https://user-images.githubusercontent.com/22747985/40579753-1de1c370-6127-11e8-903b-d646a2742911.png)
 
 We start at the very top of the tree and go down the very left-hand side as far as we can go, `"We span the depth of the tree"` and soon as we hit the bottom we go back up to closest parent and go back down again until there are no elements left to traverse.
+
+## Binary Search Tree
+
+![Binary Search Tree](https://user-images.githubusercontent.com/22747985/40589687-cfec8506-61e9-11e8-95a5-06159a5aacd4.png)
+
+A binary search tree is a tree in which every node can have 2 children at most. We usually refer to these 2 children by their position relative to their parent. I.e. with the root node, 0 would be the left node and 12 would be called the right node. Not only do we restrict the number of children a node can have, but also its value. For any given node, it's left node's value has to be less than the node's value, whereas the right node's value has to be greater than the node's value. In a BST, the data can also usually be referred to as something else, like `value`, `key`, `data`, etc.
+
+Since the number of child nodes a node can have is restricted to two, instead of assigning its children to a children property, it's common to have a left, and right property.
+
+One of the most common questions/problems is adding a new node into the right location within the tree. Another problem could be validating a BST, i.e. left node's value is less than parent node's value and right node's value is greater than parent node's value and each node has 2 children max.
+
+BST shouldn't be confused with a Binary Tree, as the `search` in Binary Search tree is what places the requirement on the values to the left and right of the parent node. A BT is a normal tree that just has 2 nodes underneath each parent.
