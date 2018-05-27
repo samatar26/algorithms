@@ -119,7 +119,7 @@ By convention we usually make sure that a node has two properties, a data proper
 
 ## Trees
 
-![tree](https://user-images.githubusercontent.com/22747985/40579676-fb8ee142-6124-11e8-9418-39fa88920176.png")
+![tree](https://user-images.githubusercontent.com/22747985/40579676-fb8ee142-6124-11e8-9418-39fa88920176.png)
 
 A tree is another data structure. There are several different types of trees. The above diagram shows the basic structure of a tree. Each box can be referred to as a node which holds some data and it will also hold a reference to all of its children. I.e. 0, 40 and -15 can refer to 20 as its parent. There's a child-parent relationship between different nodes on a tree. The data can be absolutely anything.
 
