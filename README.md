@@ -150,3 +150,9 @@ Since the number of child nodes a node can have is restricted to two, instead of
 One of the most common questions/problems is adding a new node into the right location within the tree. Another problem could be validating a BST, i.e. left node's value is less than parent node's value and right node's value is greater than parent node's value and each node has 2 children max.
 
 BST shouldn't be confused with a Binary Tree, as the `search` in Binary Search tree is what places the requirement on the values to the left and right of the parent node. A BT is a normal tree that just has 2 nodes underneath each parent.
+
+## Sorting algorithms
+
+In an interview-setting it's usually about taking an array of numbers and sorting them from lowest to greatest.
+
+![sorting-algorithms](https://user-images.githubusercontent.com/22747985/40622498-dc137cd0-6299-11e8-80ff-7807ae32108a.png)
