@@ -1,8 +1,11 @@
-// --- Directions
-// Create an 'eventing' library out of the
-// Events class.  The Events class should
-// have methods 'on', 'trigger', and 'off'.
+## Solution
 
+With an eventing library, we should be able to:
+-  register and event with a given event name, i.e. `click`. We should also be able to register multiple different event handlers with one event name.
+-  We should be able to trigger manually all these different event handlers by calling something like `trigger` and passing in the event name we want to trigger.
+- We should also be able to disable all the callbacks associated with a single event name by calling off and passing in the given event name.
+
+```js
 class Events {
   constructor() {
     this.events = {}
@@ -31,4 +34,4 @@ class Events {
   }
 }
 
-module.exports = Events
+```
